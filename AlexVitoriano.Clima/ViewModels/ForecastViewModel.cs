@@ -22,7 +22,7 @@ namespace AlexVitoriano.Clima.ViewModels
             serveClima = ServicesContainer.ClimaService;
         }
 
-        readonly IServiceClima serveClima;
+        IServiceClima serveClima;
 
         public Command LoadItemsCommand { get; set; }
 
@@ -214,6 +214,13 @@ namespace AlexVitoriano.Clima.ViewModels
                 
                 if (Lat != 0.0d && Lon != 0.0d)
                 {
+                    //Compilação no iOS perdia a referencia ao serviço.
+                    if (serveClima == null)
+                    {
+                        serveClima = ServicesContainer.ClimaService;
+                    }
+
+
                     Previsao = await serveClima.GetForecast(Lat, Lon);
 
                     if (Previsao != null)

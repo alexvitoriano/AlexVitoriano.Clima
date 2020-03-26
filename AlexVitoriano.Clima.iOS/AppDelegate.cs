@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-//using Lottie.Forms.iOS.Renderers;
+using Lottie.Forms.iOS.Renderers;
 using Foundation;
 using UIKit;
 using AlexVitoriano.Clima.Helpers;
@@ -26,7 +26,7 @@ namespace AlexVitoriano.Clima.iOS
             global::Xamarin.Forms.Forms.Init();
             LoadApplication(new App());
 
-            //AnimationViewRenderer.Init();
+            AnimationViewRenderer.Init();
             ServicesContainer.Register();
             return base.FinishedLaunching(app, options);
         }
