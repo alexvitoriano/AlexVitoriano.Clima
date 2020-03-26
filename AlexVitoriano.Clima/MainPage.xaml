@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:lottie="clr-namespace:Lottie.Forms;assembly=Lottie.Forms"
+             x:Class="AlexVitoriano.Clima.MainPage">
+    <ContentPage.Content>
+        <StackLayout x:Name="tudo">
+            <lottie:AnimationView 
+                x:Name="AnimationView" 
+                Animation="location.json" 
+                AutoPlay="True" Loop="True"
+                VerticalOptions="FillAndExpand"
+                HorizontalOptions="FillAndExpand"
+                WidthRequest="600"
+                HeightRequest="600"
+                IsPlaying="True"
+                IsVisible="True"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

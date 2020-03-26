@@ -1,0 +1,133 @@
+﻿using AlexVitoriano.Clima.Helpers;
+using System;
+using System.Runtime.Serialization;
+using Xamarin.Forms;
+
+namespace AlexVitoriano.Clima.Models
+{
+    /// <summary>
+    /// The current weather conditions at a particular location.
+    /// </summary>
+    [DataContract]
+    public class CurrentDataPoint
+    {
+
+
+        /// <summary>
+        /// Unix time at which these conditions apply.
+        /// </summary>
+        [DataMember]
+        private int time;
+
+        /// <summary>
+        /// Gets or sets the time of these conditions.
+        /// </summary>
+        public DateTimeOffset Time
+        {
+            get
+            {
+                return time.ToDateTimeOffset();
+            }
+
+            set
+            {
+                time = value.ToUnixTime();
+            }
+        }
+        public string Atualizado => $"Atualizado as: { Time.LocalDateTime.ToLocalTime().ToString("HH:mm")}";
+
+        /// <summary>
+        /// Gets or sets a human-readable summary of this data point.
+        /// </summary>
+        [DataMember(Name = "summary")]
+        public string Summary { get; set; }
+
+        /// <summary>
+        /// Gets or sets machine-readable text that can be used to select an icon to display.
+        /// </summary>
+        [DataMember(Name = "icon")]
+        public string Icon { get; set; }
+
+        public ImageSource image => ConverteIcon();
+
+
+        /// <summary>
+        /// Gets or sets the average expected precipitation assuming any precipitation occurs.
+        /// </summary>
+        [DataMember(Name = "precipIntensity")]
+        public float PrecipitationIntensity { get; set; }
+        public string IntensidadeChuva => PrecipitationIntensity == 0f ? "-" : $"{PrecipitationIntensity * 1000} mm";
+
+
+        /// <summary>
+        /// Gets or sets the probability of precipitation (from 0 to 1).
+        /// </summary>
+        [DataMember(Name = "precipProbability")]
+        public float PrecipitationProbability { get; set; }
+        public string PossibilidadeChuva => $"{PrecipitationProbability * 100}%";
+
+        /// <summary>
+        /// Gets or sets the type of precipitation (rain, sleet, or snow).
+        /// </summary>
+        [DataMember(Name = "precipType")]
+        public string PrecipitationType { get; set; }
+
+        /// <summary>
+        /// Gets or sets the temperature.
+        /// </summary>
+        [DataMember(Name = "temperature")]
+        public float Temperature { get; set; }
+        public string Temperatura => $"{Temperature.ToString("0")}°C";
+
+        /// <summary>
+        /// Gets or sets the apparent ("feels like") temperature.
+        /// </summary>
+        [DataMember(Name = "apparentTemperature")]
+        public float ApparentTemperature { get; set; }
+        public string SensaTermica => $"Sensação térmica {ApparentTemperature.ToString("0")}°C";
+
+        /// <summary>
+        /// Gets or sets the dew point.
+        /// </summary>
+        [DataMember(Name = "dewPoint")]
+        public float DewPoint { get; set; }
+        public string PtOrvalho => $"{DewPoint.ToString("0")}°C";
+
+        /// <summary>
+        /// Gets or sets the relative humidity (from 0 to 1).
+        /// </summary>
+        [DataMember(Name = "humidity")]
+        public float Humidity { get; set; }
+        public string Umidade => $"{(Humidity) * 100}%";
+
+
+        ImageSource ConverteIcon()
+        {
+            switch (Icon)
+            {
+                case "sleet":
+                    return "sleet.png";
+                case "mist":
+                    return "mist.png";
+                case "fog":
+                    return "fog.png";
+                case "partly-cloudy-night":
+                    return "night_partial_cloud.png";
+                case "partly-cloudy-day":
+                    return "day_partial_cloud.png";
+                case "clear-night":
+                    return "night_clear.png";
+                case "clear-day":
+                    return "day_clear.png";
+                case "rain":
+                    return Helpers.Helpers.IsNightTime ? "night_rain.png" : $"day_rain.png";
+                case "snow":
+                    return Helpers.Helpers.IsNightTime ? "night_snow.png" : $"day_snow.png";
+                case "thunder":
+                    return Helpers.Helpers.IsNightTime ? "night_rain_thunder.png" : $"day_rain_thunder.png";
+                default:
+                    return "overcast.png";
+            }
+        }
+    }
+}

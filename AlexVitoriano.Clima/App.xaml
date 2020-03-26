@@ -1,0 +1,211 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             mc:Ignorable="d"
+             x:Class="AlexVitoriano.Clima.App">
+    <Application.Resources>
+        <ResourceDictionary>
+            
+            <pancake:GradientStopCollection x:Key="Rainbow">
+                <pancake:GradientStop Color="#2887c8" Offset="0.2" />
+                <pancake:GradientStop Color="#0087bd" Offset="0.3" />
+                <pancake:GradientStop Color="#4682bf" Offset="0.4" />
+                <pancake:GradientStop Color="#4682bf" Offset="0.6" />
+                <pancake:GradientStop Color="#0087bd" Offset="0.7" />
+                <pancake:GradientStop Color="#2887c8" Offset="0.8" />
+            </pancake:GradientStopCollection>
+
+            <pancake:GradientStopCollection x:Key="Sleet">
+                <pancake:GradientStop Color="#bfc7de" Offset="0.1" />
+                <pancake:GradientStop Color="#dbdfe6" Offset="0.5" />
+            </pancake:GradientStopCollection>
+
+            <pancake:GradientStopCollection x:Key="SnowNight">
+                <pancake:GradientStop Color="#000c24" Offset="0.1" />
+                <pancake:GradientStop Color="#010b13" Offset="0.5" />
+            </pancake:GradientStopCollection>
+            
+            <pancake:GradientStopCollection x:Key="SnowDay">
+                <pancake:GradientStop Color="#9abcff" Offset="0.1" />
+                <pancake:GradientStop Color="#c2d6ff" Offset="0.5" />
+            </pancake:GradientStopCollection>
+
+            <pancake:GradientStopCollection x:Key="RainNight">
+                <pancake:GradientStop Color="#100c08" Offset="0.2" />
+                <pancake:GradientStop Color="#1b1d20" Offset="0.3" />
+                <pancake:GradientStop Color="#3c4148" Offset="0.4" />
+                <pancake:GradientStop Color="#262d31" Offset="0.55" />
+                <pancake:GradientStop Color="#100c08" Offset="0.6" />
+                <pancake:GradientStop Color="#010b13" Offset="0.65" />
+                <pancake:GradientStop Color="#373c44" Offset="0.70" />
+                <pancake:GradientStop Color="#010b13" Offset="0.85" />
+            </pancake:GradientStopCollection>
+
+            <pancake:GradientStopCollection x:Key="RainDay">
+                <pancake:GradientStop Color="#555d69" Offset="0.2" />
+                <pancake:GradientStop Color="#8b9fb8" Offset="0.3" />
+                <pancake:GradientStop Color="#9199a4" Offset="0.4" />
+                <pancake:GradientStop Color="#8a9ca4" Offset="0.55" />
+                <pancake:GradientStop Color="#90969d" Offset="0.6" />
+                <pancake:GradientStop Color="#a0b0af" Offset="0.65" />
+                <pancake:GradientStop Color="#c6c9cd" Offset="0.70" />
+                <pancake:GradientStop Color="#8f969e" Offset="0.85" />
+            </pancake:GradientStopCollection>
+
+            <pancake:GradientStopCollection x:Key="CloudSunset">
+                <pancake:GradientStop Color="#0b4365" Offset="0.25" />
+                <pancake:GradientStop Color="#23445d" Offset="0.40" />
+                <pancake:GradientStop Color="#194452" Offset="0.55" />
+                <pancake:GradientStop Color="#0b4365" Offset="0.60" />
+                <pancake:GradientStop Color="#00437a" Offset="0.65" />
+                <pancake:GradientStop Color="#0b4365" Offset="0.70" />
+                <pancake:GradientStop Color="#4a4f55" Offset="0.85" />
+            </pancake:GradientStopCollection>
+
+            <pancake:GradientStopCollection x:Key="ClearSunset">
+                <pancake:GradientStop Color="#284a5f" Offset="0.05" />
+                <pancake:GradientStop Color="#2887c8" Offset="0.10" />
+                <pancake:GradientStop Color="#137ab9" Offset="0.15" />
+                <pancake:GradientStop Color="#ff1638" Offset="0.20" />
+                <pancake:GradientStop Color="#344d56" Offset="0.35" />
+                <pancake:GradientStop Color="#de5285" Offset="0.40" />
+                <pancake:GradientStop Color="#fdcb18" Offset="0.55" />
+                <pancake:GradientStop Color="#ff1638" Offset="0.60" />
+                <!--<pancake:GradientStop Color="#fdcb18" Offset="0.65" />
+                <pancake:GradientStop Color="#e9692c" Offset="0.70" />
+                <pancake:GradientStop Color="#ff0023" Offset="0.73" />-->
+                <pancake:GradientStop Color="#e9692c" Offset="0.74" />
+                <pancake:GradientStop Color="#214c66" Offset="0.75" />
+                <pancake:GradientStop Color="#344d56" Offset="0.77" />
+                <pancake:GradientStop Color="#044f67" Offset="0.79" />
+                <pancake:GradientStop Color="#137ab9" Offset="0.82" />
+                <pancake:GradientStop Color="#2887c8" Offset="0.85" />
+                <pancake:GradientStop Color="#284a5f" Offset="1" />
+            </pancake:GradientStopCollection>
+
+            <pancake:GradientStopCollection x:Key="CloudPreSunset">
+                <pancake:GradientStop Color="#9fc1ec" Offset="0.2" />
+                <pancake:GradientStop Color="#94a8c2" Offset="0.4" />
+                <pancake:GradientStop Color="#84b3e7" Offset="0.6" />
+                <pancake:GradientStop Color="#95a4b9" Offset="0.8" />
+            </pancake:GradientStopCollection>
+
+            <pancake:GradientStopCollection x:Key="ClearPreSunset">
+                <pancake:GradientStop Color="#6495ed" Offset="0.2" />
+                <pancake:GradientStop Color="#66a4e2" Offset="0.4" />
+                <pancake:GradientStop Color="#2f83d8" Offset="0.6" />
+                <pancake:GradientStop Color="#286ce6" Offset="0.8" />
+            </pancake:GradientStopCollection>
+
+            <pancake:GradientStopCollection x:Key="CloudDay12">
+                <pancake:GradientStop Color="#b7bcc1" Offset="0.2" />
+                <pancake:GradientStop Color="#acb3bb" Offset="0.3" />
+                <pancake:GradientStop Color="#8f969e" Offset="0.4" />
+                <pancake:GradientStop Color="#addaff" Offset="0.6" />
+                <pancake:GradientStop Color="#d8dde8" Offset="0.65" />
+                <pancake:GradientStop Color="#c6c9cd" Offset="0.70" />
+                <pancake:GradientStop Color="#8f969e" Offset="0.85" />
+                
+            </pancake:GradientStopCollection>
+            
+            <pancake:GradientStopCollection x:Key="ClearDay12">
+                <pancake:GradientStop Color="#2887c8" Offset="0.2" />
+                <pancake:GradientStop Color="#0087bd" Offset="0.3" />
+                <pancake:GradientStop Color="#4682bf" Offset="0.4" />
+                <pancake:GradientStop Color="#4682bf" Offset="0.6" />
+                <pancake:GradientStop Color="#0087bd" Offset="0.7" />
+                <pancake:GradientStop Color="#2887c8" Offset="0.8" />
+            </pancake:GradientStopCollection>
+
+            <pancake:GradientStopCollection x:Key="CloudSunrise">
+                <pancake:GradientStop Color="#b7c8d7" Offset="0.25" />
+                <pancake:GradientStop Color="#bee2f8" Offset="0.35" />
+                <pancake:GradientStop Color="#bcd4e6" Offset="0.40" />
+                <pancake:GradientStop Color="#add8e6" Offset="0.55" />
+                <pancake:GradientStop Color="#bee2f8" Offset="0.60" />
+                <pancake:GradientStop Color="#cce8ff" Offset="0.65" />
+                <pancake:GradientStop Color="#bee2f8" Offset="0.70" />
+                <pancake:GradientStop Color="#b7c8d7" Offset="0.75" />
+            </pancake:GradientStopCollection>
+            
+            <pancake:GradientStopCollection x:Key="ClearSunrise">
+                <pancake:GradientStop Color="#cce8ff" Offset="0.05" />
+                <pancake:GradientStop Color="#2887c8" Offset="0.10" />
+                <pancake:GradientStop Color="#4682bf" Offset="0.15" />
+                <pancake:GradientStop Color="#ff1638" Offset="0.20" />
+                <pancake:GradientStop Color="#bd33a4" Offset="0.35" />
+                <pancake:GradientStop Color="#e9692c" Offset="0.40" />
+                <pancake:GradientStop Color="#bd33a4" Offset="0.55" />
+                <pancake:GradientStop Color="#ff1638" Offset="0.60" />
+                <pancake:GradientStop Color="#fdcb18" Offset="0.65" />
+                <pancake:GradientStop Color="#e9692c" Offset="0.70" />
+                <pancake:GradientStop Color="#ff0023" Offset="0.73" />
+                <pancake:GradientStop Color="#e9692c" Offset="0.74" />
+                <pancake:GradientStop Color="#fdcb18" Offset="0.75" />
+                <pancake:GradientStop Color="#fddd68" Offset="0.77" />
+                <pancake:GradientStop Color="#967bb6" Offset="0.79" />
+                <pancake:GradientStop Color="#137ab9" Offset="0.82" />
+                <pancake:GradientStop Color="#4682bf" Offset="0.85" />
+                <pancake:GradientStop Color="#cce8ff" Offset="1" />
+            </pancake:GradientStopCollection>
+
+            <pancake:GradientStopCollection x:Key="CloudPreSunrise">
+                <pancake:GradientStop Color="#3e3754" Offset="0.2" />
+                <pancake:GradientStop Color="#2a293f" Offset="0.3" />
+                <pancake:GradientStop Color="#001654" Offset="0.4" />
+                <pancake:GradientStop Color="#2a293f" Offset="0.6" />
+                <pancake:GradientStop Color="#001654" Offset="0.7" />
+                <pancake:GradientStop Color="#3e3754" Offset="0.8" />
+            </pancake:GradientStopCollection>
+            
+            <pancake:GradientStopCollection x:Key="ClearPreSunrise">
+                <pancake:GradientStop Color="#191970" Offset="0.2" />
+                <pancake:GradientStop Color="#001f5e" Offset="0.3" />
+                <pancake:GradientStop Color="#001654" Offset="0.4" />
+                <pancake:GradientStop Color="#001f5e" Offset="0.6" />
+                <pancake:GradientStop Color="#001654" Offset="0.7" />
+                <pancake:GradientStop Color="#191970" Offset="0.8" />
+            </pancake:GradientStopCollection>
+
+            <pancake:GradientStopCollection x:Key="CloudNight03">
+                <pancake:GradientStop Color="#061e36" Offset="0.2" />
+                <pancake:GradientStop Color="#001e3C" Offset="0.3" />
+                <pancake:GradientStop Color="#324467" Offset="0.4" />
+                <pancake:GradientStop Color="#324467" Offset="0.6" />
+                <pancake:GradientStop Color="#001e3C" Offset="0.7" />
+                <pancake:GradientStop Color="#05182b" Offset="0.8" />
+            </pancake:GradientStopCollection>
+
+            <pancake:GradientStopCollection x:Key="ClearNight03">
+                <pancake:GradientStop Color="#061e36" Offset="0.2" />
+                <pancake:GradientStop Color="#000c24" Offset="0.3" />
+                <pancake:GradientStop Color="#010b13" Offset="0.4" />
+                <pancake:GradientStop Color="#000c24" Offset="0.6" />
+                <pancake:GradientStop Color="#05182b" Offset="0.7" />
+                <pancake:GradientStop Color="#010b13" Offset="0.8" />
+            </pancake:GradientStopCollection>
+
+            <pancake:GradientStopCollection x:Key="CloudNight20">
+                <pancake:GradientStop Color="#0c0f17" Offset="0.2" />
+                <pancake:GradientStop Color="#192841" Offset="0.3" />
+                <pancake:GradientStop Color="#423e4d" Offset="0.4" />
+                <pancake:GradientStop Color="#423e4d" Offset="0.6" />
+                <pancake:GradientStop Color="#192841" Offset="0.7" />
+                <pancake:GradientStop Color="#0c0f17" Offset="0.8" />
+            </pancake:GradientStopCollection>
+
+            <pancake:GradientStopCollection x:Key="ClearNight20">
+                <pancake:GradientStop Color="#0c0f17" Offset="0.2" />
+                <pancake:GradientStop Color="#192841" Offset="0.3" />
+                <pancake:GradientStop Color="#17243a" Offset="0.4" />
+                <pancake:GradientStop Color="#17243a" Offset="0.6" />
+                <pancake:GradientStop Color="#192841" Offset="0.7" />
+                <pancake:GradientStop Color="#0c0f17" Offset="0.8" />
+            </pancake:GradientStopCollection>
+
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>
